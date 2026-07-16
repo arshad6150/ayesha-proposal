@@ -20,11 +20,13 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-aut
 
 // PASTE YOUR FIREBASE CONFIG HERE ↓↓↓
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyAhkBRMrYaLHj8o3XJFVUt4pM2zeTGG_xg",
+  authDomain: "mla-x7.firebaseapp.com",
+  projectId: "mla-x7",
+  storageBucket: "mla-x7.firebasestorage.app",
+  messagingSenderId: "211595546020",
+  appId: "1:211595546020:web:efe140ad3b6002bdd00531",
+  measurementId: "G-064JYZ57KE"
 };
 
 export const app = initializeApp(firebaseConfig);
