@@ -1,0 +1,382 @@
+/* =====================================================
+   Ayesha Proposal — Premium Romantic Theme
+   Palette: Black / Red / Pink / White
+   ===================================================== */
+
+:root{
+  --black: #08080b;
+  --noir: #140d10;
+  --red: #e0264d;
+  --red-deep: #a5162f;
+  --pink: #ff6f9c;
+  --pink-soft: #ffd6e2;
+  --white: #ffffff;
+
+  --font-display: 'Playfair Display', serif;
+  --font-script: 'Dancing Script', cursive;
+  --font-body: 'Poppins', sans-serif;
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+
+html, body{
+  height:100%;
+  width:100%;
+  overflow-x:hidden;
+  font-family: var(--font-body);
+  color: var(--white);
+  background: linear-gradient(-45deg, var(--black), var(--red-deep), var(--noir), var(--red));
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+}
+
+@keyframes gradientShift{
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+
+#bg-hearts, #bg-sparkles{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Screens ---------- */
+.screen{
+  display:none;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 32px 20px;
+  text-align:center;
+}
+.screen.active{ display:flex; }
+
+/* ---------- Glassmorphism card ---------- */
+.glass-card{
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 40px rgba(224,38,77,0.15);
+  padding: 40px 30px;
+  max-width: 520px;
+  width: 100%;
+  animation: cardIn 0.7s ease both;
+}
+@keyframes cardIn{
+  from{ opacity:0; transform: translateY(24px) scale(0.98); }
+  to{ opacity:1; transform: translateY(0) scale(1); }
+}
+
+.center-card{ text-align:center; }
+
+/* ---------- Loading screen ---------- */
+#loadingScreen{ gap: 22px; }
+.loading-heart{
+  font-size: 64px;
+  color: var(--red);
+  animation: beat 1.1s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(224,38,77,0.6);
+}
+@keyframes beat{
+  0%,100%{ transform: scale(1); }
+  50%{ transform: scale(1.25); }
+}
+.loading-text{
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--pink-soft);
+}
+.dots span{ animation: blink 1.4s infinite; opacity:0; }
+.dots span:nth-child(2){ animation-delay: 0.2s; }
+.dots span:nth-child(3){ animation-delay: 0.4s; }
+@keyframes blink{ 0%,100%{opacity:0;} 50%{opacity:1;} }
+
+.progress-track{
+  width: 240px;
+  height: 6px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--red), var(--pink));
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+/* ---------- Home screen ---------- */
+.hi-line{
+  font-family: var(--font-display);
+  font-size: 40px;
+  margin-bottom: 14px;
+}
+.heart-inline{ color: var(--red); }
+.typewriter{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--pink-soft);
+  min-height: 30px;
+  margin-bottom: 26px;
+  border-right: 2px solid var(--pink);
+  display:inline-block;
+  padding-right: 4px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary{
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--red), var(--pink));
+  color: var(--white);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(224,38,77,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover{ transform: translateY(-2px) scale(1.03); box-shadow: 0 14px 36px rgba(224,38,77,0.55); }
+.btn-primary:disabled{ opacity: 0.5; cursor: not-allowed; transform:none; }
+
+.reveal-btn{ margin-top: 6px; }
+
+/* ---------- Love screen ---------- */
+.big-heart-wrap{ margin-bottom: 6px; }
+.big-heart{
+  font-size: 90px;
+  color: var(--red);
+  animation: beat 1.4s ease-in-out infinite;
+  text-shadow: 0 0 50px rgba(224,38,77,0.6);
+}
+.script-heading{
+  font-family: var(--font-script);
+  font-size: 40px;
+  color: var(--pink);
+}
+.love-title{
+  font-family: var(--font-display);
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+.fade-line{
+  font-size: 16px;
+  color: var(--pink-soft);
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeInLine 0.8s ease forwards;
+}
+.fade-line[data-delay="0"]{ animation-delay: 0.3s; }
+.fade-line[data-delay="1"]{ animation-delay: 1.2s; }
+.fade-line[data-delay="2"]{ animation-delay: 2.1s; }
+.fade-line[data-delay="3"]{ animation-delay: 3.0s; }
+@keyframes fadeInLine{
+  from{ opacity:0; transform: translateY(10px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+#loveScreen .btn-primary{ margin-top: 22px; }
+
+/* ---------- Proposal screen ---------- */
+.proposal-title{
+  font-family: var(--font-display);
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.btn-row{
+  position: relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 22px;
+  min-height: 76px;
+}
+.btn-yes{
+  font-weight:700;
+  font-size: 17px;
+  padding: 15px 34px;
+  border:none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--red), var(--pink));
+  color: var(--white);
+  cursor:pointer;
+  box-shadow: 0 0 0 rgba(224,38,77,0.5);
+  animation: yesPulse 1.8s ease-in-out infinite;
+}
+@keyframes yesPulse{
+  0%,100%{ box-shadow: 0 0 0 0 rgba(224,38,77,0.5); transform: scale(1); }
+  50%{ box-shadow: 0 0 30px 6px rgba(224,38,77,0.4); transform: scale(1.05); }
+}
+.btn-no{
+  font-weight:600;
+  font-size: 15px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: var(--pink-soft);
+  cursor:pointer;
+  transition: color 0.2s ease;
+}
+.btn-no:hover{ color: var(--white); }
+.dodge-message{
+  margin-top: 22px;
+  font-size: 14px;
+  color: var(--pink-soft);
+  min-height: 20px;
+  opacity: 0.9;
+}
+
+/* ---------- Celebration screen ---------- */
+#confettiCanvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.celebrate-title{
+  font-family: var(--font-display);
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+.promise-text{
+  font-size: 16px;
+  color: var(--pink-soft);
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+/* ---------- Love letter ---------- */
+.letter-card{
+  max-width: 620px;
+  text-align: left;
+  max-height: 82vh;
+  overflow-y: auto;
+}
+.letter-body p{
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--pink-soft);
+  margin-bottom: 16px;
+}
+.letter-sign{ margin-top: 22px; color: var(--white); }
+.script-signature{
+  font-family: var(--font-script);
+  font-size: 30px;
+  color: var(--red);
+}
+.letter-card .btn-primary{ display:block; margin: 20px auto 0; }
+
+/* ---------- Her turn screen ---------- */
+.her-turn-sub{
+  font-size: 15px;
+  color: var(--pink-soft);
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+textarea#heartMessage{
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  padding: 16px;
+  resize: vertical;
+  min-height: 120px;
+}
+textarea#heartMessage:focus{ outline: 2px solid var(--red); }
+.char-count{
+  font-size: 12px;
+  color: var(--pink-soft);
+  text-align: right;
+  margin: 6px 0 20px;
+  opacity: 0.75;
+}
+
+.privacy-note{
+  font-size: 12px;
+  color: var(--pink-soft);
+  opacity: 0.85;
+  background: rgba(255,255,255,0.05);
+  border-left: 3px solid var(--red);
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-align:left;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.status-msg{
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--pink-soft);
+  min-height: 18px;
+}
+
+/* ---------- Music toggle ---------- */
+.music-btn{
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 20;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ---------- Rose petal layer ---------- */
+#petalLayer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 15;
+  overflow: hidden;
+  display:none;
+}
+#petalLayer.active{ display:block; }
+.petal{
+  position:absolute;
+  top: -20px;
+  font-size: 20px;
+  color: var(--red);
+  animation-name: petalFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes petalFall{
+  0%{ transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100%{ transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px){
+  .hi-line{ font-size: 32px; }
+  .love-title{ font-size: 28px; }
+  .proposal-title{ font-size: 24px; }
+  .glass-card{ padding: 28px 20px; }
+  .btn-row{ flex-direction: row; flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

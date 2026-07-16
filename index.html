@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Ayesha ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Decorative canvas layers -->
+<canvas id="bg-hearts"></canvas>
+<canvas id="bg-sparkles"></canvas>
+
+<!-- Background music -->
+<audio id="bgMusic" loop preload="auto" src="assets/audio/romantic-loop.mp3"></audio>
+<button id="musicToggle" class="music-btn" aria-label="Play or pause background music">
+  <span id="musicIcon">♪</span>
+</button>
+
+<!-- ================= LOADING SCREEN ================= -->
+<section id="loadingScreen" class="screen active">
+  <div class="loading-heart">❤</div>
+  <p class="loading-text">Loading Love<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</section>
+
+<!-- ================= HOME PAGE ================= -->
+<section id="homeScreen" class="screen">
+  <div class="glass-card center-card">
+    <h1 class="hi-line">Hi Ayesha <span class="heart-inline">❤️</span></h1>
+    <p class="typewriter" id="typewriterText"></p>
+    <button class="btn-primary reveal-btn" id="openHeartBtn" disabled>Open My Heart ❤️</button>
+  </div>
+</section>
+
+<!-- ================= SECOND PAGE (I LOVE YOU) ================= -->
+<section id="loveScreen" class="screen">
+  <div class="big-heart-wrap">
+    <div class="big-heart">❤</div>
+  </div>
+  <div class="glass-card center-card fade-sequence">
+    <h2 class="script-heading">Ayesha,</h2>
+    <h1 class="love-title">I Love You ❤️</h1>
+    <p class="fade-line" data-delay="0">You are my favorite hello and my hardest goodbye.</p>
+    <p class="fade-line" data-delay="1">You make ordinary days feel extraordinary.</p>
+    <p class="fade-line" data-delay="2">I don't want a perfect life.</p>
+    <p class="fade-line" data-delay="3">I only want a life with you.</p>
+    <button class="btn-primary" id="toProposalBtn">Continue ❤️</button>
+  </div>
+</section>
+
+<!-- ================= PROPOSAL ================= -->
+<section id="proposalScreen" class="screen">
+  <div class="glass-card center-card">
+    <h1 class="proposal-title">Will You Be Mine Forever? ❤️</h1>
+    <div class="btn-row" id="proposalBtnRow">
+      <button class="btn-yes" id="yesBtn">YES ❤️</button>
+      <button class="btn-no" id="noBtn">NO 💔</button>
+    </div>
+    <p class="dodge-message" id="dodgeMessage"></p>
+  </div>
+</section>
+
+<!-- ================= CELEBRATION (YES) ================= -->
+<section id="celebrationScreen" class="screen">
+  <canvas id="confettiCanvas"></canvas>
+  <div class="glass-card center-card">
+    <h1 class="celebrate-title">Thank you for saying YES ❤️</h1>
+    <p class="promise-text">
+      I promise to respect you, support you, make you smile,
+      and always value your happiness.
+    </p>
+    <button class="btn-primary" id="toLetterBtn">Read My Letter ❤️</button>
+  </div>
+</section>
+
+<!-- ================= LOVE LETTER ================= -->
+<section id="letterScreen" class="screen">
+  <div class="glass-card letter-card">
+    <h2 class="script-heading">A Letter For You</h2>
+    <div class="letter-body">
+      <p>My dearest Ayesha,</p>
+      <p>
+        If you are reading this, it means the words I have carried in my chest for so long
+        have finally found their way to paper. There is a particular kind of quiet joy in
+        loving you — the kind that shows up in small things, in the way an ordinary Tuesday
+        suddenly feels like something worth remembering, simply because you were part of it.
+      </p>
+      <p>
+        I am not writing this to be poetic. I am writing this because it is true: you have
+        made me a softer, better version of myself. You've taught me that love isn't only in
+        grand gestures, but in the patience of a long phone call, the comfort of familiar
+        laughter, and the quiet reassurance of knowing someone is in your corner.
+      </p>
+      <p>
+        I don't know what the years ahead will look like — no one truly does. But I know I
+        want to walk through them with you: through the ordinary Tuesdays and the difficult
+        days, through the small victories and the loud celebrations. I want to be the person
+        who steadies you when things are heavy, and the one who laughs loudest at your jokes
+        when things are light.
+      </p>
+      <p>
+        Thank you for saying yes. Thank you for trusting me with your heart. I will spend my
+        time making sure it was worth it.
+      </p>
+      <p class="letter-sign">Forever Yours,<br><span class="script-signature">Arshad ❤️</span></p>
+    </div>
+    <button class="btn-primary" id="toHerTurnBtn">Now It's Your Turn ❤️</button>
+  </div>
+</section>
+
+<!-- ================= HER MESSAGE ================= -->
+<section id="herTurnScreen" class="screen">
+  <div class="glass-card center-card">
+    <h2 class="script-heading">Now it's your turn ❤️</h2>
+    <p class="her-turn-sub">I've shared what's in my heart.<br>Now I'd love to know what's in yours.</p>
+
+    <textarea id="heartMessage" placeholder="Write anything you want..." minlength="20" maxlength="3000" rows="6"></textarea>
+    <div class="char-count"><span id="charCount">0</span> / 3000 (min 20)</div>
+
+    <p class="privacy-note">
+      💌 Your message will be saved privately so Arshad can read it. It won't be shared anywhere else.
+    </p>
+
+    <button class="btn-primary" id="sendHeartBtn">Send My Heart ❤️</button>
+    <p class="status-msg" id="sendStatus"></p>
+  </div>
+</section>
+
+<!-- Rose petal layer (appears during celebration) -->
+<div id="petalLayer"></div>
+
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
